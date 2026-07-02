@@ -1,9 +1,12 @@
-const LINKS = [
+type NavLink = { href: string; label: string; download?: string };
+
+const LINKS: NavLink[] = [
   { href: "#about", label: "about" },
   { href: "#experience", label: "experience" },
   { href: "#projects", label: "projects" },
   { href: "#skills", label: "skills" },
   { href: "#contact", label: "contact" },
+  { href: "/resume.pdf", label: "resume", download: "Braden-Garcia-Resume.pdf" },
 ];
 
 export function SiteNav() {
@@ -20,7 +23,11 @@ export function SiteNav() {
         <ul className="flex flex-1 flex-wrap justify-end gap-x-3 gap-y-1 md:gap-x-5">
           {LINKS.map((link) => (
             <li key={link.href}>
-              <a href={link.href} className="text-fg-dim transition-colors hover:text-accent">
+              <a
+                href={link.href}
+                download={link.download}
+                className="text-fg-dim transition-colors hover:text-accent"
+              >
                 {link.label}
               </a>
             </li>
