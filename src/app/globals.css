@@ -1,0 +1,161 @@
+@import "tailwindcss";
+
+:root {
+  /* Terminal palette — near-black base, restrained green/amber accents.
+     Kept desaturated on purpose: this is a real terminal, not a neon prop. */
+  --color-bg: #0a0c0b;
+  --color-bg-raised: #12140f;
+  --color-bg-inset: #0d0f0c;
+  --color-border: #262b24;
+  --color-border-strong: #3a4136;
+
+  --color-fg: #dce2d8;
+  --color-fg-dim: #838f83;
+  --color-fg-muted: #545e51;
+
+  --color-accent: #5fb86a;
+  --color-accent-dim: #3d7a45;
+  --color-accent-fg: #0a0c0b;
+
+  --color-amber: #c99a5b;
+  --color-amber-dim: #8a6a3f;
+
+  --color-danger: #c9605b;
+
+  --font-mono: var(--font-jetbrains-mono);
+  --font-sans: var(--font-inter);
+}
+
+@theme inline {
+  --color-bg: var(--color-bg);
+  --color-bg-raised: var(--color-bg-raised);
+  --color-bg-inset: var(--color-bg-inset);
+  --color-border: var(--color-border);
+  --color-border-strong: var(--color-border-strong);
+  --color-fg: var(--color-fg);
+  --color-fg-dim: var(--color-fg-dim);
+  --color-fg-muted: var(--color-fg-muted);
+  --color-accent: var(--color-accent);
+  --color-accent-dim: var(--color-accent-dim);
+  --color-accent-fg: var(--color-accent-fg);
+  --color-amber: var(--color-amber);
+  --color-amber-dim: var(--color-amber-dim);
+  --color-danger: var(--color-danger);
+  --font-mono: var(--font-mono);
+  --font-sans: var(--font-sans);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--color-bg);
+  color-scheme: dark;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-fg);
+  font-family: var(--font-sans);
+  cursor: none;
+}
+
+/* Native cursor stays put for touch devices, since the custom cursor is
+   decorative there. Reduced motion keeps the custom cursor (just without
+   the spin/sparkle flourishes) rather than falling back to native — see
+   CustomCursor. */
+@media (pointer: coarse) {
+  body {
+    cursor: auto;
+  }
+}
+
+::selection {
+  background: var(--color-accent-dim);
+  color: var(--color-fg);
+}
+
+/* Visible focus ring for keyboard users — must survive the custom cursor
+   being active, since a keyboard-only user never sees it anyway. */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+a,
+button {
+  cursor: none;
+}
+
+@media (pointer: coarse) {
+  a,
+  button {
+    cursor: pointer;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border-strong);
+  border-radius: 999px;
+}
+
+/* Cursor keyframes live globally (rather than styled-jsx-scoped) because the
+   busy ring is a separate component from the pulse wrapper — a scoped style
+   block wouldn't reliably reach into an independently-rendered SVG. */
+@keyframes cursor-busy-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Click acknowledgment for reduced motion: a static scale-pulse, no
+   rotation. Only ever applied by CustomCursor when reduced motion is on. */
+@keyframes cursor-ack-pulse {
+  0% {
+    transform: scale(1);
+  }
+  40% {
+    transform: scale(1.22);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.cursor-ack-pulse {
+  animation: cursor-ack-pulse 220ms ease-out 1 both;
+  transform-origin: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* Deliberate, narrow exception to the blanket rule above: the click
+     acknowledgment is kept as a brief, non-rotating flourish instead of
+     being crushed to imperceptible along with everything else. A class
+     selector beats the universal selector above even though both are
+     !important, so this is safe to declare unconditionally. */
+  .cursor-ack-pulse {
+    animation-duration: 220ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
