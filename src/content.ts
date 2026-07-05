@@ -28,10 +28,10 @@ export const boot = { lines: bootLines };
 export const about = {
   heading: "about",
   paragraphs: [
-    "I studied Computer Science at Rutgers, and I'm currently working as an IT Technician at Next Management in New York. College is where things actually clicked for me, not any one specific class, but the way CS forces you to break a problem down and think it through. That's stuck with me, and it's how I approach anything technical now.",
-    "IT is a good teacher for that kind of thinking. You're dealing with real devices, real people locked out of real accounts, systems that are supposed to work a certain way and don't. I bring that same mindset to building software. errmem, one of the projects below, came out of a problem I kept running into myself, not something I invented just to have a project to show.",
-    "I don't have one specific job title I'm chasing next. Tech is moving fast enough right now that I'd rather stay open to different kinds of problems than lock myself into one lane too early. What actually matters to me is the type of work, not the title attached to it: solving real technical problems and building things that hold up.",
-    "Outside of work, I hike a lot. Mount Tammany is my regular spot, but the Jewell Trail up Mount Washington and climbing Mount Zas in Greece are two I still think about. I play and watch soccer, and I'm a Manchester City fan. I'm also genuinely into music and sampling, and that's not a coincidence given two of the projects on this site: BlessedEar came from caring about how music recommendations actually work, and the SP-404 Sampler exists because I wanted to build the sampling process itself, not just use someone else's tool for it.",
+    "I have a Bachelor of Science in Computer Science at Rutgers, and I'm currently working as in Information Technology at Next Management in New York. Rutgers is where things actually clicked for me, as CS forces you to break a problem down and think it through. This programmatic thinking and problem solving has stuck with me, and it's how I approach anything technical now.",
+    "IT is a good teacher for that kind of thinking. You're dealing with real devices, real people, and systems that are supposed to work a certain way and don't. I bring that same mindset to building software.",
+    "I don't have one specific job title I'm chasing next. Tech is moving fast enough right now that I'd rather stay open to different kinds of problems than lock myself into one lane. What actually matters to me is the type of work; solving real technical problems and building things that hold up.",
+    "Outside of work, I love to hike. Mount Tammany is my regular spot, but the Jewell Trail up Mount Washington and Mount Zas in Greece are two of my favorite. I play and watch soccer, and I'm a Manchester City fan. I'm also interested in music and sampling, and that's not a coincidence given two of the projects on this site. BlessedEar came from caring about how music recommendations actually work, and the SP-404 Sampler exists because I wanted to build the sampling process itself, not just use someone else's tool for it.",
   ],
 };
 
@@ -74,7 +74,7 @@ export const projects: Project[] = [
   {
     name: "LeadFinder",
     description:
-      "LeadFinder is a tool built for a real investment firm to automatically find and rank promising investor leads, replacing hours of manual research with a few minutes of automated searching. It pulls information from multiple public data sources and scores each lead so the best opportunities rise to the top. Results come out as a color-coded spreadsheet anyone on the team can open and use immediately, no technical background required. It's been deployed and is actively used by the firm today.",
+      "LeadFinder is a tool built for an investment firm, Forte Capital Group, to automatically find and rank promising investor leads, replacing hours of manual research with a few minutes of automated searching. It pulls information from multiple public data sources and scores each lead so the best opportunities rise to the top. Results come out as a color-coded spreadsheet anyone on the team can open and use immediately, no technical background required. It's been deployed and is actively used by the firm today.",
     stack: ["Python", "Apollo.io API", "Census/SEC/ATTOM APIs", "openpyxl"],
     href: `https://github.com/${personal.githubHandle}/lead-finder`,
   },
