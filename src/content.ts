@@ -28,10 +28,10 @@ export const boot = { lines: bootLines };
 export const about = {
   heading: "about",
   paragraphs: [
-    "I have a Bachelor of Science in Computer Science at Rutgers, and I'm currently working as in Information Technology at Next Management in New York. Rutgers is where things actually clicked for me, as CS forces you to break a problem down and think it through. This programmatic thinking and problem solving has stuck with me, and it's how I approach anything technical now.",
+    "I have a Bachelor of Science in Computer Science at Rutgers University, and I'm currently working in Information Technology at Next Management in New York. Rutgers is where things actually clicked for me, as CS forces you to break a problem down and think it through. This programmatic thinking and problem solving has stuck with me, and it's how I approach anything technical now.",
     "IT is a good teacher for that kind of thinking. You're dealing with real devices, real people, and systems that are supposed to work a certain way and don't. I bring that same mindset to building software.",
     "I don't have one specific job title I'm chasing next. Tech is moving fast enough right now that I'd rather stay open to different kinds of problems than lock myself into one lane. What actually matters to me is the type of work; solving real technical problems and building things that hold up.",
-    "Outside of work, I love to hike. Mount Tammany is my regular spot, but the Jewell Trail up Mount Washington and Mount Zas in Greece are two of my favorite. I play and watch soccer, and I'm a Manchester City fan. I'm also interested in music and sampling, and that's not a coincidence given two of the projects on this site. BlessedEar came from caring about how music recommendations actually work, and the SP-404 Sampler exists because I wanted to build the sampling process itself, not just use someone else's tool for it.",
+    "Outside of work, I love to hike. Mount Tammany is my regular spot, but the Jewell Trail up Mount Washington and Mount Zas in Greece are two of my favorite. I play and watch soccer, and I'm a Manchester City fan. I'm also interested in music and sampling, and that's not a coincidence given two of the projects on this site. BlessedEar came from caring about how music recommendations actually work, and the SP-404 Sampler exists because I wanted to build the sampling process itself, not just use someone else's tool.",
   ],
 };
 
