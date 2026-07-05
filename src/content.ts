@@ -69,8 +69,7 @@ export const projects: Project[] = [
     description:
       "errmem is a tool that remembers every coding error you've run into before and exactly how you fixed it, so you never waste time solving the same problem twice. It's smart enough to recognize the same underlying issue even when the error message is worded completely differently. Everything runs locally on your machine instead of depending on the cloud, and it's fully tested and packaged for a simple one-line install.",
     stack: ["Python", "sentence-transformers", "pytest", "GitHub Actions", "pipx", "SQLite"],
-    // Repo is not public — restore the href once it is:
-    // href: `https://github.com/${personal.githubHandle}/errmem`,
+    href: `https://github.com/${personal.githubHandle}/errmem`,
   },
   {
     name: "LeadFinder",
@@ -106,8 +105,7 @@ export const projects: Project[] = [
     description:
       "A browser-based recreation of the Roland SP-404, a real piece of hardware musicians use to chop up and remix audio samples. Upload any song, slice it into pieces across a 16-pad grid, and manipulate the speed, pitch, and tone in real time, no hardware required. It includes a full beat sequencer and support for real MIDI controllers, plus effects like vinyl distortion and lo-fi warble pulled straight from the original device. Projects are saved right in the browser, so you can pick up where you left off.",
     stack: ["TypeScript", "React", "Vite", "Web Audio API", "Web MIDI API", "Zustand", "IndexedDB"],
-    // Repo is not public — restore the href once it is:
-    // href: `https://github.com/${personal.githubHandle}/roland-sp404-ios`,
+    href: `https://github.com/${personal.githubHandle}/roland-sp404-ios`,
   },
 ];
 
