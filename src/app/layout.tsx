@@ -17,9 +17,26 @@ const jetbrainsMono = JetBrains_Mono({
   display: "swap",
 });
 
+const title = `${personal.name} — ${personal.role}`;
+const description = `Portfolio of ${personal.name}, ${personal.role} based in ${personal.location}.`;
+
 export const metadata: Metadata = {
-  title: `${personal.name} — ${personal.role}`,
-  description: `Portfolio of ${personal.name}, ${personal.role} based in ${personal.location}.`,
+  metadataBase: new URL("https://bradengarcia.com"),
+  title,
+  description,
+  openGraph: {
+    title,
+    description,
+    url: "/",
+    siteName: personal.name,
+    type: "website",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+  },
 };
 
 export default function RootLayout({

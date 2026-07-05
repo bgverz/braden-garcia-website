@@ -19,7 +19,7 @@ export function About() {
         </div>
 
         <Reveal delay={0.2}>
-          <div className="mt-10 flex items-center gap-3 border-t border-border pt-6 font-mono text-sm text-fg-muted">
+          <div className="mt-10 flex items-center gap-3 border-t border-border pt-6 font-mono text-sm text-fg-dim">
             <span className="text-accent">$</span>
             <span>
               {education.school} · {education.degree}, {education.date}

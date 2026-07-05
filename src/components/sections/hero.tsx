@@ -86,7 +86,11 @@ export function Hero() {
                     <span className="text-accent">{line.prompt}</span>
                     <span className="text-fg-dim"> $ </span>
                     <span>{text}</span>
-                    {isLastCmdTyping && <span className="animate-pulse text-accent">▌</span>}
+                    {isLastCmdTyping && (
+                      <span aria-hidden="true" className="animate-pulse text-accent">
+                        ▌
+                      </span>
+                    )}
                   </div>
                 );
               }
@@ -97,7 +101,7 @@ export function Hero() {
               );
             })}
             {done && (
-              <div className="mt-1 text-fg">
+              <div aria-hidden="true" className="mt-1 text-fg">
                 <span className="text-accent">~</span>
                 <span className="text-fg-dim"> $ </span>
                 <span className="inline-block h-[1em] w-[0.55em] translate-y-[2px] animate-pulse bg-accent align-middle" />
@@ -120,6 +124,7 @@ export function Hero() {
       </div>
 
       <motion.div
+        aria-hidden="true"
         initial={reducedMotion ? undefined : { opacity: 0 }}
         animate={done ? { opacity: 1 } : {}}
         transition={{ duration: 0.6, delay: 0.4 }}
