@@ -28,10 +28,10 @@ export const boot = { lines: bootLines };
 export const about = {
   heading: "about",
   paragraphs: [
-    "I have a B.S. in Computer Science from Rutgers, and I'm currently working as an IT Technician at Next Management in New York. Rutgers is where tech really clicked for me: not any single class, but the programmatic thinking and problem-solving instincts I built there. Those are what let me pick up new things quickly and go deep on them ever since.",
-    "The IT side taught me to think in terms of real systems under real constraints: fleets of devices, identity and access at scale, the gap between how something is supposed to work and how it actually breaks. That's the same instinct I bring to building software. errmem exists because of a genuine friction point I hit as a developer, not because it sounded like a good idea for a portfolio.",
-    "I'm not fixed on one specific title for what comes next. Tech roles are shifting fast right now, and I'd rather stay open to a range of technical problems than narrow myself down too early. What matters more to me is the shape of the work: systems-level thinking, real constraints, and things that actually need to get built and maintained, whether that ends up under a software engineering title, a systems engineering one, or something in between.",
-    "Outside of work, I hike a lot. Mount Tammany is a regular one, but the Jewell Trail up Mount Washington and climbing Mount Zas in Greece are the two that stuck with me most. I play and watch soccer, and I follow Manchester City. I'm also genuinely into music and sampling, which is actually where two of my projects came from: BlessedEar started from caring about how music recommendation actually works, and the SP-404 Sampler exists because I wanted to build the sampling workflow itself, not just use it. Neither one was picked at random.",
+    "I studied Computer Science at Rutgers, and I'm currently working as an IT Technician at Next Management in New York. College is where things actually clicked for me, not any one specific class, but the way CS forces you to break a problem down and think it through. That's stuck with me, and it's how I approach anything technical now.",
+    "IT is a good teacher for that kind of thinking. You're dealing with real devices, real people locked out of real accounts, systems that are supposed to work a certain way and don't. I bring that same mindset to building software. errmem, one of the projects below, came out of a problem I kept running into myself, not something I invented just to have a project to show.",
+    "I don't have one specific job title I'm chasing next. Tech is moving fast enough right now that I'd rather stay open to different kinds of problems than lock myself into one lane too early. What actually matters to me is the type of work, not the title attached to it: solving real technical problems and building things that hold up.",
+    "Outside of work, I hike a lot. Mount Tammany is my regular spot, but the Jewell Trail up Mount Washington and climbing Mount Zas in Greece are two I still think about. I play and watch soccer, and I'm a Manchester City fan. I'm also genuinely into music and sampling, and that's not a coincidence given two of the projects on this site: BlessedEar came from caring about how music recommendations actually work, and the SP-404 Sampler exists because I wanted to build the sampling process itself, not just use someone else's tool for it.",
   ],
 };
 
@@ -67,42 +67,42 @@ export const projects: Project[] = [
   {
     name: "errmem",
     description:
-      "errmem is an offline CLI that remembers errors you've hit before and the fix that worked, so the next time a familiar-looking stack trace shows up, it tells you what worked last time instead of sending you back to Google. Lookups run through three tiers: an exact fingerprint match, fuzzy text matching, and (since v2) local semantic embeddings. That semantic tier was added only after v1's deliberately zero-dependency design proved unable to catch same-error-different-wording cases, like an ImportError and a ModuleNotFoundError for the same missing package. It's fully tested with a pytest suite in CI and MIT licensed, and it ships via a pipx-based Homebrew tap because a native Homebrew formula wasn't feasible: its one dependency pulls in torch, which has no source distribution on PyPI.",
+      "errmem is a tool that remembers every coding error you've run into before and exactly how you fixed it, so you never waste time solving the same problem twice. It's smart enough to recognize the same underlying issue even when the error message is worded completely differently. Everything runs locally on your machine instead of depending on the cloud, and it's fully tested and packaged for a simple one-line install.",
     stack: ["Python", "sentence-transformers", "pytest", "GitHub Actions", "pipx", "SQLite"],
     href: `https://github.com/${personal.githubHandle}/errmem`,
   },
   {
     name: "LeadFinder",
     description:
-      "LeadFinder is a Python CLI built and deployed for Forte Capital Group to source and score accredited investor leads, replacing a manual prospecting workflow and directly improving the quality of the firm's deal pipeline. A multi-source enrichment pipeline pulls in data from Apollo.io, U.S. Census records, SEC EDGAR filings, and ATTOM property data, then automatically scores and ranks leads by investability. Results export as a color-coded, filterable Excel workbook, so non-technical users can identify and prioritize high-value prospects without touching a command line themselves.",
+      "LeadFinder is a tool built for a real investment firm to automatically find and rank promising investor leads, replacing hours of manual research with a few minutes of automated searching. It pulls information from multiple public data sources and scores each lead so the best opportunities rise to the top. Results come out as a color-coded spreadsheet anyone on the team can open and use immediately, no technical background required. It's been deployed and is actively used by the firm today.",
     stack: ["Python", "Apollo.io API", "Census/SEC/ATTOM APIs", "openpyxl"],
     href: `https://github.com/${personal.githubHandle}/lead-finder`,
   },
   {
     name: "BlessedEar",
     description:
-      "BlessedEar is a full-stack music recommendation platform that builds intelligent playlists from a listener's own Spotify library, playlists, and listening history. A recommendation engine processes 200+ tracks at a time, using randomized seed selection and multiple ranking strategies to keep playlists varied rather than repetitive. Getting there reliably meant real error handling and fallback strategies around the Spotify Web API's audio-feature analysis, landing on a 99%+ API success rate in production. It includes a full OAuth 2.0 authentication system with session management and account switching, plus a Next.js/TypeScript frontend with real-time audio-feature visualizations.",
+      "BlessedEar is a music recommendation platform that builds personalized playlists based on what you actually listen to on Spotify. Instead of looping the same handful of songs, it analyzes hundreds of tracks at once to keep recommendations fresh and varied. Getting it to work reliably meant solving real problems with Spotify's own API, and it now succeeds on virtually every request. It's a full web app with secure login, built end to end.",
     stack: ["Python", "Spotify API", "scikit-learn", "Flask", "FastAPI", "React", "Next.js", "OAuth2"],
     href: `https://github.com/${personal.githubHandle}/BlessedEar`,
   },
   {
     name: "StudyForge",
     description:
-      "StudyForge is a full-stack RAG-powered study platform that turns uploaded PDFs into an interactive, contextual Q&A experience, with streaming responses and intelligent chunking via sentence-transformers. The backend is a FastAPI service built around async operations and a Pinecone vector database for semantic search, with performance monitoring across embedding generation, vector retrieval, and LLM inference that drove a 75% performance improvement. The Next.js/TypeScript frontend adds real-time streaming chat, automated flashcard generation, and a responsive design system animated with Framer Motion.",
+      "StudyForge turns any PDF into an interactive study buddy: upload a textbook chapter or a set of notes, and ask it questions in plain English. It answers in real time as you type, generates flashcards automatically, and finds the exact right passage to reference using the same kind of search technology behind modern AI tools. A dedicated performance push cut response times by 75%. The result is a fast, polished tool that makes studying dense material a lot less painful.",
     stack: ["Next.js", "FastAPI", "Pinecone", "Groq API", "TypeScript", "Tailwind CSS", "sentence-transformers", "Framer Motion"],
     href: "https://github.com/ShaunM042/StudyForge",
   },
   {
     name: "FlickIQ",
     description:
-      "FlickIQ is a hybrid movie recommendation system combining collaborative and content-based filtering (via LightFM) over the full MovieLens 25M dataset (roughly 62,000 movies, 280,000 users, and 25 million ratings), enriched with TMDB metadata for posters, overviews, and genre information. A FastAPI backend serves real-time personalized recommendations, similar-movie lookups, search, and trending endpoints, backed by PostgreSQL with pgvector for fast similarity search, alongside an optional Streamlit interface for demos and testing. It's built with real production concerns in mind: Recall@K evaluation, popularity-based cold-start handling, batched processing, and rate-limit-aware TMDB enrichment. FlickIQ is a collaborative project, and Braden is the primary contributor to the shared repository, accounting for most of its commit history.",
+      "FlickIQ is a movie recommendation engine trained on 25 million real ratings across tens of thousands of movies, combining two different recommendation techniques to suggest films people actually end up liking. It serves personalized picks, similar-movie suggestions, and trending titles in real time, complete with posters and details pulled in automatically. It's a collaborative project, and Braden is the primary contributor behind most of the codebase.",
     stack: ["Python", "LightFM", "FastAPI", "Streamlit", "PostgreSQL", "pgvector", "TMDB API"],
     href: "https://github.com/ShaunM042/FlickIQ",
   },
   {
     name: "SP-404 Sampler",
     description:
-      "A browser-based emulator for the Roland SP-404 hardware sampler, recreating its core sampling workflow in software: upload audio, chop and slice it across a 16-pad grid, and manipulate playback speed, pitch, and tone in real time. Audio processing runs entirely on the Web Audio API, where a custom effects chain (filter, vinyl simulation, lo-fi, compressor, delay, reverb) sits between each pad's sample player and the output. It also has a built-in step sequencer for programming patterns and Web MIDI support for triggering pads from an external controller. Projects persist locally via IndexedDB, so a session picks back up where it left off.",
+      "A browser-based recreation of the Roland SP-404, a real piece of hardware musicians use to chop up and remix audio samples. Upload any song, slice it into pieces across a 16-pad grid, and manipulate the speed, pitch, and tone in real time, no hardware required. It includes a full beat sequencer and support for real MIDI controllers, plus effects like vinyl distortion and lo-fi warble pulled straight from the original device. Projects are saved right in the browser, so you can pick up where you left off.",
     stack: ["TypeScript", "React", "Vite", "Web Audio API", "Web MIDI API", "Zustand", "IndexedDB"],
     href: `https://github.com/${personal.githubHandle}/roland-sp404-ios`,
   },
