@@ -35,20 +35,17 @@ export function CustomCursor() {
     const el = rootRef.current;
     if (!el) return;
 
-    let x = window.innerWidth / 2;
-    let y = window.innerHeight / 2;
-    let targetX = x;
-    let targetY = y;
+    let targetX = window.innerWidth / 2;
+    let targetY = window.innerHeight / 2;
     let raf = 0;
 
-    // Reduced motion: snap straight to the real position every frame instead
-    // of easing toward it — the eased follow is itself continuous motion.
-    const ease = reducedMotion ? 1 : 0.35;
-
+    // Base position tracks the real pointer exactly, every frame — no lerp/
+    // damping toward the target. Any interpolation here reads as perceptible
+    // lag against the actual mouse, since it takes several frames to
+    // converge. Eased effects (hover-state icon swap, busy-pulse scale) are
+    // separate from this and keep their own motion.
     const tick = () => {
-      x += (targetX - x) * ease;
-      y += (targetY - y) * ease;
-      el.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+      el.style.transform = `translate3d(${targetX}px, ${targetY}px, 0)`;
       raf = requestAnimationFrame(tick);
     };
 
