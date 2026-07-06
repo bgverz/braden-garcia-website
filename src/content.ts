@@ -96,7 +96,7 @@ export const projects: Project[] = [
   {
     name: "FlickIQ",
     description:
-      "FlickIQ is a movie recommendation engine trained on 25 million real ratings across tens of thousands of movies, combining two different recommendation techniques to suggest films people actually end up liking. It serves personalized picks, similar-movie suggestions, and trending titles in real time, complete with posters and details pulled in automatically. It's a collaborative project, and Braden is the primary contributor behind most of the codebase.",
+      "FlickIQ is a movie recommendation engine trained on 25 million real ratings across tens of thousands of movies, combining two different recommendation techniques to suggest films people actually end up liking. It serves personalized picks, similar-movie suggestions, and trending titles in real time, complete with posters and details pulled in automatically.",
     stack: ["Python", "LightFM", "FastAPI", "Streamlit", "PostgreSQL", "pgvector", "TMDB API"],
     href: "https://github.com/ShaunM042/FlickIQ",
   },
