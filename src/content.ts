@@ -61,6 +61,9 @@ export type Project = {
   description: string;
   stack: string[];
   href?: string;
+  // GitHub handle of the collaborator whose account hosts the repo, shown on
+  // the card so "View Code" landing on another profile isn't confusing.
+  collab?: string;
 };
 
 export const projects: Project[] = [
@@ -90,7 +93,8 @@ export const projects: Project[] = [
     description:
       "StudyForge turns any PDF into an interactive study buddy: upload a textbook chapter or a set of notes, and ask it questions in plain English. It answers in real time as you type, generates flashcards automatically, and finds the exact right passage to reference using the same kind of search technology behind modern AI tools. A dedicated performance push cut response times by 75%. The result is a fast, polished tool that makes studying dense material a lot less painful.",
     stack: ["Next.js", "FastAPI", "Pinecone", "Groq API", "TypeScript", "Tailwind CSS", "sentence-transformers", "Framer Motion"],
-    // Repo is not public — restore the href once it is:
+    collab: "ShaunM042",
+    // Repo is private — restore the href once it's public:
     // href: "https://github.com/ShaunM042/StudyForge",
   },
   {
@@ -98,6 +102,7 @@ export const projects: Project[] = [
     description:
       "FlickIQ is a movie recommendation engine trained on 25 million real ratings across tens of thousands of movies, combining two different recommendation techniques to suggest films people actually end up liking. It serves personalized picks, similar-movie suggestions, and trending titles in real time, complete with posters and details pulled in automatically.",
     stack: ["Python", "LightFM", "FastAPI", "Streamlit", "PostgreSQL", "pgvector", "TMDB API"],
+    collab: "ShaunM042",
     href: "https://github.com/ShaunM042/FlickIQ",
   },
   {

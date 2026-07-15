@@ -16,6 +16,11 @@ export function Projects() {
             <Reveal key={project.name} delay={i * 0.08}>
               <div className="flex h-full flex-col rounded-md border border-border bg-bg-raised/30 p-6 transition-colors hover:border-border-strong">
                 <h3 className="font-mono text-lg text-fg">{project.name}</h3>
+                {project.collab && (
+                  <p className="mt-0.5 font-mono text-[11px] text-fg-muted">
+                    collab · with @{project.collab}
+                  </p>
+                )}
                 <p className="mt-2 text-sm leading-relaxed text-fg-dim">{project.description}</p>
                 <div className="mt-4 flex flex-wrap gap-1.5">
                   {project.stack.map((tech) => (
