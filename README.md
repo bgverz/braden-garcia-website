@@ -10,7 +10,8 @@ Live at [bradengarcia.com](https://bradengarcia.com).
 
 - [Next.js](https://nextjs.org) (App Router, fully static)
 - Tailwind CSS 4
-- Framer Motion (scroll reveals) + GSAP (hero boot-sequence timeline)
+- Framer Motion (scroll reveals); the hero boot sequence is a small
+  hand-rolled `requestAnimationFrame` typewriter
 - JetBrains Mono / Inter via `next/font`
 
 ## Development
@@ -29,8 +30,8 @@ All site copy (about, experience, projects, skills, contact) lives in
 The resume served by the nav's download link is
 [`public/resume.pdf`](public/resume.pdf).
 
-Project cards without an `href` render a disabled "Repo not public yet"
-button — restore the commented-out `href` in `src/content.ts` when a repo
+Project cards without an `href` render a non-interactive "Private repo"
+label — restore the commented-out `href` in `src/content.ts` when a repo
 goes public.
 
 ## Accessibility notes

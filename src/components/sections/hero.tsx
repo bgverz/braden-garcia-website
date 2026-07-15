@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { boot, personal } from "@/content";
 import { useReducedMotion } from "@/components/providers/motion-provider";
-import { useGsap } from "@/lib/gsap";
 
 type Line = { kind: "cmd"; prompt: string; cmd: string } | { kind: "output"; text: string };
 
@@ -12,16 +11,20 @@ const LINES: Line[] = boot.lines.map((l) =>
   "cmd" in l ? { kind: "cmd", prompt: l.prompt, cmd: l.cmd } : { kind: "output", text: l.output }
 );
 
+const START_DELAY_MS = 150;
+const CHAR_MS = 32; // typing speed per character
+const CMD_PAUSE_MS = 220; // beat after a command finishes typing
+const OUTPUT_PAUSE_MS = 260; // beat after an output line prints
+
 // The signature moment: a boot sequence that types itself out on load, like a
-// terminal starting up. Orchestrated as a single GSAP timeline — command
-// lines "type" (tweened char count), output lines just "print" (instant set).
+// terminal starting up. Command lines "type" (char count driven by rAF),
+// output lines just "print" (appear whole after a short beat).
 export function Hero() {
   const reducedMotion = useReducedMotion();
-  const { gsap } = useGsap();
-  const [animVisibleCount, setVisibleCount] = useState(0);
+  const [animVisibleCount, setAnimVisibleCount] = useState(0);
   const [typedChars, setTypedChars] = useState(0);
   const [typingIndex, setTypingIndex] = useState(-1);
-  const [animDone, setDone] = useState(false);
+  const [animDone, setAnimDone] = useState(false);
 
   // Reduced motion shows the finished state immediately — no animation to
   // run, so nothing to sync from an effect; these are derived at render time.
@@ -29,36 +32,45 @@ export function Hero() {
   const done = reducedMotion || animDone;
 
   useEffect(() => {
-    // Runs unconditionally on mount — this is the hero, it always plays on
-    // load and is never gated behind scroll or IntersectionObserver.
     if (reducedMotion) return;
 
-    const tl = gsap.timeline({ delay: 0.15, onComplete: () => setDone(true) });
+    let timer = 0;
+    let raf = 0;
 
-    LINES.forEach((line, i) => {
-      if (line.kind === "cmd") {
-        const proxy = { chars: 0 };
-        tl.call(() => {
-          setVisibleCount((c) => Math.max(c, i + 1));
-          setTypingIndex(i);
-        });
-        tl.to(proxy, {
-          chars: line.cmd.length,
-          duration: line.cmd.length * 0.032,
-          ease: "none",
-          onUpdate: () => setTypedChars(Math.round(proxy.chars)),
-        });
-        tl.to({}, { duration: 0.22 });
-      } else {
-        tl.call(() => setVisibleCount((c) => Math.max(c, i + 1)));
-        tl.to({}, { duration: 0.26 });
+    const step = (i: number) => {
+      if (i >= LINES.length) {
+        setAnimDone(true);
+        return;
       }
-    });
+      const line = LINES[i];
+      setAnimVisibleCount(i + 1);
+
+      if (line.kind === "cmd") {
+        setTypingIndex(i);
+        setTypedChars(0);
+        const started = performance.now();
+        const tick = (now: number) => {
+          const chars = Math.min(line.cmd.length, Math.floor((now - started) / CHAR_MS));
+          setTypedChars(chars);
+          if (chars < line.cmd.length) {
+            raf = requestAnimationFrame(tick);
+          } else {
+            timer = window.setTimeout(() => step(i + 1), CMD_PAUSE_MS);
+          }
+        };
+        raf = requestAnimationFrame(tick);
+      } else {
+        timer = window.setTimeout(() => step(i + 1), OUTPUT_PAUSE_MS);
+      }
+    };
+
+    timer = window.setTimeout(() => step(0), START_DELAY_MS);
 
     return () => {
-      tl.kill();
+      clearTimeout(timer);
+      cancelAnimationFrame(raf);
     };
-  }, [reducedMotion, gsap]);
+  }, [reducedMotion]);
 
   return (
     <section
