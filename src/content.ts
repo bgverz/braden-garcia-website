@@ -70,28 +70,28 @@ export const projects: Project[] = [
   {
     name: "errmem",
     description:
-      "errmem is a tool that remembers every coding error you've run into before and exactly how you fixed it, so you never waste time solving the same problem twice. It's smart enough to recognize the same underlying issue even when the error message is worded completely differently. Everything runs locally on your machine instead of depending on the cloud, and it's fully tested and packaged for a simple one-line install.",
+      "Nobody should have to solve the same error twice. errmem keeps a local record of every error you've hit and the fix that worked, and it matches on meaning rather than exact text — a completely reworded message still surfaces the old answer. No cloud dependency; fully tested, one-line pipx install.",
     stack: ["Python", "sentence-transformers", "pytest", "GitHub Actions", "pipx", "SQLite"],
     href: `https://github.com/${personal.githubHandle}/errmem`,
   },
   {
     name: "LeadFinder",
     description:
-      "LeadFinder is a tool built for an investment firm, Forte Capital Group, to automatically find and rank promising investor leads, replacing hours of manual research with a few minutes of automated searching. It pulls information from multiple public data sources and scores each lead so the best opportunities rise to the top. Results come out as a color-coded spreadsheet anyone on the team can open and use immediately, no technical background required. It's been deployed and is actively used by the firm today.",
+      "Built for Forte Capital Group, an investment firm, to take investor-lead research from hours of manual work down to a few minutes. It pulls from multiple public data sources, scores each lead so the strongest rise to the top, and writes everything to a color-coded spreadsheet anyone at the firm can open. Deployed and in active use today.",
     stack: ["Python", "Apollo.io API", "Census/SEC/ATTOM APIs", "openpyxl"],
     href: `https://github.com/${personal.githubHandle}/lead-finder`,
   },
   {
     name: "BlessedEar",
     description:
-      "BlessedEar is a music recommendation platform that builds personalized playlists based on what you actually listen to on Spotify. Instead of looping the same handful of songs, it analyzes hundreds of tracks at once to keep recommendations fresh and varied. Getting it to work reliably meant solving real problems with Spotify's own API, and it now succeeds on virtually every request. It's a full web app with secure login, built end to end.",
+      "A music recommendation platform wired into what you actually listen to on Spotify. It analyzes hundreds of tracks at once, so playlists stay varied instead of circling the same handful of songs. Much of the work went into making Spotify's own API behave — it now succeeds on virtually every request. Full web app, secure login, built end to end.",
     stack: ["Python", "Spotify API", "scikit-learn", "Flask", "FastAPI", "React", "Next.js", "OAuth2"],
     href: `https://github.com/${personal.githubHandle}/BlessedEar`,
   },
   {
     name: "StudyForge",
     description:
-      "StudyForge turns any PDF into an interactive study buddy: upload a textbook chapter or a set of notes, and ask it questions in plain English. It answers in real time as you type, generates flashcards automatically, and finds the exact right passage to reference using the same kind of search technology behind modern AI tools. A dedicated performance push cut response times by 75%. The result is a fast, polished tool that makes studying dense material a lot less painful.",
+      "Upload a PDF — a textbook chapter, a set of notes — and ask it questions in plain English. StudyForge answers in real time, generates flashcards automatically, and uses retrieval search to cite the exact passage it pulled the answer from. A dedicated performance push cut response times by 75%.",
     stack: ["Next.js", "FastAPI", "Pinecone", "Groq API", "TypeScript", "Tailwind CSS", "sentence-transformers", "Framer Motion"],
     collab: "ShaunM042",
     // Repo is private — restore the href once it's public:
@@ -100,7 +100,7 @@ export const projects: Project[] = [
   {
     name: "FlickIQ",
     description:
-      "FlickIQ is a movie recommendation engine trained on 25 million real ratings across tens of thousands of movies, combining two different recommendation techniques to suggest films people actually end up liking. It serves personalized picks, similar-movie suggestions, and trending titles in real time, complete with posters and details pulled in automatically.",
+      "Trained on 25 million real ratings across tens of thousands of movies, FlickIQ combines two different recommendation techniques and serves personalized picks, similar-movie suggestions, and trending titles in real time, posters and details included.",
     stack: ["Python", "LightFM", "FastAPI", "Streamlit", "PostgreSQL", "pgvector", "TMDB API"],
     collab: "ShaunM042",
     href: "https://github.com/ShaunM042/FlickIQ",
@@ -108,7 +108,7 @@ export const projects: Project[] = [
   {
     name: "SP-404 Sampler",
     description:
-      "A browser-based recreation of the Roland SP-404, a real piece of hardware musicians use to chop up and remix audio samples. Upload any song, slice it into pieces across a 16-pad grid, and manipulate the speed, pitch, and tone in real time, no hardware required. It includes a full beat sequencer and support for real MIDI controllers, plus effects like vinyl distortion and lo-fi warble pulled straight from the original device. Projects are saved right in the browser, so you can pick up where you left off.",
+      "A browser recreation of the Roland SP-404, the hardware sampler musicians use to chop up and remix audio. Upload any song, slice it across the 16-pad grid, and bend speed, pitch, and tone in real time — no hardware needed. There's a full beat sequencer, support for real MIDI controllers, and effects pulled straight from the original device: vinyl distortion, lo-fi warble. Projects save in the browser, so you can pick up where you left off.",
     stack: ["TypeScript", "React", "Vite", "Web Audio API", "Web MIDI API", "Zustand", "IndexedDB"],
     href: `https://github.com/${personal.githubHandle}/roland-sp404-ios`,
   },
