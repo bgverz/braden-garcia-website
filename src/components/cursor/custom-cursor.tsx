@@ -35,23 +35,16 @@ export function CustomCursor() {
     const el = rootRef.current;
     if (!el) return;
 
-    let targetX = window.innerWidth / 2;
-    let targetY = window.innerHeight / 2;
-    let raf = 0;
-
-    // Base position tracks the real pointer exactly, every frame — no lerp/
-    // damping toward the target. Any interpolation here reads as perceptible
-    // lag against the actual mouse, since it takes several frames to
-    // converge. Eased effects (hover-state icon swap, busy-pulse scale) are
-    // separate from this and keep their own motion.
-    const tick = () => {
-      el.style.transform = `translate3d(${targetX}px, ${targetY}px, 0)`;
-      raf = requestAnimationFrame(tick);
-    };
+    // Base position tracks the real pointer exactly — no lerp/damping, which
+    // would read as perceptible lag against the actual mouse. Since there's
+    // nothing to interpolate, the transform is written directly in the
+    // pointermove handler rather than from an always-on rAF loop that would
+    // keep running while the pointer sits still. Eased effects (hover-state
+    // icon swap, busy-pulse scale) are separate and keep their own motion.
+    el.style.transform = `translate3d(${window.innerWidth / 2}px, ${window.innerHeight / 2}px, 0)`;
 
     const onMove = (e: PointerEvent) => {
-      targetX = e.clientX;
-      targetY = e.clientY;
+      el.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0)`;
     };
 
     // Hover state swap is a plain React state update (no transition), so it
@@ -96,10 +89,8 @@ export function CustomCursor() {
     window.addEventListener("click", onClick);
     document.documentElement.addEventListener("mouseleave", onLeaveWindow);
     document.documentElement.addEventListener("mouseenter", onEnterWindow);
-    raf = requestAnimationFrame(tick);
 
     return () => {
-      cancelAnimationFrame(raf);
       window.removeEventListener("pointermove", onMove);
       window.removeEventListener("pointerover", onOver);
       window.removeEventListener("pointerout", onOut);
