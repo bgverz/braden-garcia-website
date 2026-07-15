@@ -11,22 +11,18 @@ function GithubIcon() {
   );
 }
 
-// Shared across every project card (featured + secondary) so "view the repo"
-// looks and behaves identically everywhere — pass the project's repo URL,
-// or omit it to render a disabled state instead of a dead link.
+// Shared across every project card so "view the repo" looks and behaves
+// identically everywhere — pass the project's repo URL, or omit it for a
+// repo that isn't public.
 export function ViewCodeButton({ href }: { href?: string }) {
   const base =
     "inline-flex w-fit items-center gap-1.5 rounded-sm border px-3 py-1.5 font-mono text-xs transition-colors duration-150";
 
   if (!href) {
     return (
-      <span
-        className={`${base} border-border text-fg-muted opacity-50`}
-        aria-disabled="true"
-        title="Repo not public yet"
-      >
+      <span className={`${base} border-border text-fg-muted`}>
         <GithubIcon />
-        View Code
+        Private repo
       </span>
     );
   }
