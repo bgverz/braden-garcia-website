@@ -15,7 +15,7 @@ export function Experience() {
             <div className="rounded-md border border-border bg-bg-raised/40 p-6 md:p-8">
               <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
                 <h3 className="font-mono text-xl text-fg md:text-2xl">{job.role}</h3>
-                <span className="font-mono text-sm text-fg-dim">{job.date}</span>
+                <span className="font-mono text-sm text-amber">{job.date}</span>
               </div>
               <p className="mt-1 font-mono text-sm text-accent">
                 {job.org} · {job.location}

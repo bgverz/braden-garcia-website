@@ -22,7 +22,8 @@ export function About() {
           <div className="mt-10 flex items-center gap-3 border-t border-border pt-6 font-mono text-sm text-fg-dim">
             <span className="text-accent">$</span>
             <span>
-              {education.school} · {education.degree}, {education.date}
+              {education.school} · {education.degree},{" "}
+              <span className="text-amber">{education.date}</span>
             </span>
           </div>
         </Reveal>
