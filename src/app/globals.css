@@ -20,8 +20,6 @@
   --color-amber: #c99a5b;
   --color-amber-dim: #8a6a3f;
 
-  --color-danger: #c9605b;
-
   --font-mono: var(--font-jetbrains-mono);
   --font-sans: var(--font-inter);
 }
@@ -40,7 +38,6 @@
   --color-accent-fg: var(--color-accent-fg);
   --color-amber: var(--color-amber);
   --color-amber-dim: var(--color-amber-dim);
-  --color-danger: var(--color-danger);
   --font-mono: var(--font-mono);
   --font-sans: var(--font-sans);
 }
@@ -61,13 +58,22 @@ body {
   cursor: none;
 }
 
-/* Native cursor stays put for touch devices, since the custom cursor is
-   decorative there. Reduced motion keeps the custom cursor (just without
-   the spin/sparkle flourishes) rather than falling back to native — see
-   CustomCursor. */
+a,
+button {
+  cursor: none;
+}
+
+/* Native cursor stays put for touch devices, since the custom cursor never
+   renders there. Reduced motion keeps the custom cursor (just without the
+   spin flourish) rather than falling back to native — see CustomCursor. */
 @media (pointer: coarse) {
   body {
     cursor: auto;
+  }
+
+  a,
+  button {
+    cursor: pointer;
   }
 }
 
@@ -81,18 +87,6 @@ body {
 :focus-visible {
   outline: 2px solid var(--color-accent);
   outline-offset: 3px;
-}
-
-a,
-button {
-  cursor: none;
-}
-
-@media (pointer: coarse) {
-  a,
-  button {
-    cursor: pointer;
-  }
 }
 
 ::-webkit-scrollbar {

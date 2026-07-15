@@ -12,9 +12,8 @@ export function useReducedMotion() {
 export function MotionProvider({ children }: { children: React.ReactNode }) {
   const reduced = useMediaQuery("(prefers-reduced-motion: reduce)", false);
 
-  // Pure side effect on an already-known value (not syncing state) — keeps
-  // the CSS-only reduced-motion fallback (see globals.css) in agreement with
-  // the JS-driven one used by components.
+  // Keeps the CSS-only reduced-motion fallback (see globals.css) in
+  // agreement with the JS-driven one used by components.
   useEffect(() => {
     document.documentElement.classList.toggle("reduced-motion", reduced);
   }, [reduced]);
