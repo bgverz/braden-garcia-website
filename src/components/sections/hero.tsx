@@ -102,7 +102,7 @@ export function Hero() {
             })}
             {done && (
               <div aria-hidden="true" className="mt-1 text-fg">
-                <span className="text-accent">~</span>
+                <span className="text-accent">~/braden</span>
                 <span className="text-fg-dim"> $ </span>
                 <span className="inline-block h-[1em] w-[0.55em] translate-y-[2px] animate-pulse bg-accent align-middle" />
               </div>

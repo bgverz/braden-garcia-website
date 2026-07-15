@@ -13,14 +13,14 @@ export const personal = {
 
 export type BootLine = { prompt: string; cmd: string } | { output: string };
 
-// Lines rendered in sequence in the hero boot sequence.
+// Lines rendered in sequence in the hero boot sequence. The `ls` output
+// mirrors the site's real sections (and the nav's ~/braden), so the terminal
+// is describing the actual page rather than reciting a script.
 const bootLines: BootLine[] = [
-  { prompt: "~", cmd: "whoami" },
-  { output: personal.name },
-  { prompt: "~", cmd: "cat role.txt" },
-  { output: personal.role },
-  { prompt: "~", cmd: "./init --site" },
-  { output: "booting portfolio… done." },
+  { prompt: "~", cmd: "cd braden && ls" },
+  { output: "about/  experience/  projects/  skills/  contact/" },
+  { prompt: "~/braden", cmd: "./init" },
+  { output: "ready." },
 ];
 
 export const boot = { lines: bootLines };
