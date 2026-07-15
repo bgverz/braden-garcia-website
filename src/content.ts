@@ -50,7 +50,7 @@ export const experience = [
     bullets: [
       "Architected and deployed a self-hosted Shelf asset tracking system on Ubuntu, establishing the organization's first standardized asset inventory process from scratch, tagging all hardware across the environment",
       "Led migration of endpoint management from N-able RMM to Jamf, reconfiguring device policies, profiles, and automation workflows across the managed device fleet",
-      "Administered Microsoft 365 environments via Entra ID and Microsoft Admin Center — user identity lifecycle, access provisioning, and security configuration across multiple client organizations",
+      "Administered Microsoft 365 environments via Entra ID and Microsoft Admin Center: user identity lifecycle, access provisioning, and security configuration across multiple client organizations",
       "Delivered frontline technical support in an MSP environment: remote troubleshooting and ticketing across diverse client infrastructure",
     ],
   },
@@ -70,7 +70,7 @@ export const projects: Project[] = [
   {
     name: "errmem",
     description:
-      "Nobody should have to solve the same error twice. errmem keeps a local record of every error you've hit and the fix that worked, and it matches on meaning rather than exact text — a completely reworded message still surfaces the old answer. No cloud dependency; fully tested, one-line pipx install.",
+      "Nobody should have to solve the same error twice. errmem keeps a local record of every error you've hit and the fix that worked, and it matches on meaning rather than exact text, so a completely reworded message still surfaces the old answer. No cloud dependency; fully tested, one-line pipx install.",
     stack: ["Python", "sentence-transformers", "pytest", "GitHub Actions", "pipx", "SQLite"],
     href: `https://github.com/${personal.githubHandle}/errmem`,
   },
@@ -84,14 +84,14 @@ export const projects: Project[] = [
   {
     name: "BlessedEar",
     description:
-      "A music recommendation platform wired into what you actually listen to on Spotify. It analyzes hundreds of tracks at once, so playlists stay varied instead of circling the same handful of songs. Much of the work went into making Spotify's own API behave — it now succeeds on virtually every request. Full web app, secure login, built end to end.",
+      "A music recommendation platform wired into what you actually listen to on Spotify. It analyzes hundreds of tracks at once, so playlists stay varied instead of circling the same handful of songs. Much of the work went into making Spotify's own API behave, and it now succeeds on virtually every request. Full web app, secure login, built end to end.",
     stack: ["Python", "Spotify API", "scikit-learn", "Flask", "FastAPI", "React", "Next.js", "OAuth2"],
     href: `https://github.com/${personal.githubHandle}/BlessedEar`,
   },
   {
     name: "StudyForge",
     description:
-      "Upload a PDF — a textbook chapter, a set of notes — and ask it questions in plain English. StudyForge answers in real time, generates flashcards automatically, and uses retrieval search to cite the exact passage it pulled the answer from. A dedicated performance push cut response times by 75%.",
+      "Upload a textbook chapter or a set of notes and ask it questions in plain English. StudyForge answers in real time, generates flashcards automatically, and uses retrieval search to cite the exact passage it pulled the answer from. A dedicated performance push cut response times by 75%.",
     stack: ["Next.js", "FastAPI", "Pinecone", "Groq API", "TypeScript", "Tailwind CSS", "sentence-transformers", "Framer Motion"],
     collab: "ShaunM042",
     // Repo is private — restore the href once it's public:
@@ -108,7 +108,7 @@ export const projects: Project[] = [
   {
     name: "SP-404 Sampler",
     description:
-      "A browser recreation of the Roland SP-404, the hardware sampler musicians use to chop up and remix audio. Upload any song, slice it across the 16-pad grid, and bend speed, pitch, and tone in real time — no hardware needed. There's a full beat sequencer, support for real MIDI controllers, and effects pulled straight from the original device: vinyl distortion, lo-fi warble. Projects save in the browser, so you can pick up where you left off.",
+      "A browser recreation of the Roland SP-404, the hardware sampler musicians use to chop up and remix audio. Upload any song, slice it across the 16-pad grid, and bend speed, pitch, and tone in real time, no hardware needed. There's a full beat sequencer, support for real MIDI controllers, and effects pulled straight from the original device: vinyl distortion, lo-fi warble. Projects save in the browser, so you can pick up where you left off.",
     stack: ["TypeScript", "React", "Vite", "Web Audio API", "Web MIDI API", "Zustand", "IndexedDB"],
     href: `https://github.com/${personal.githubHandle}/roland-sp404-ios`,
   },
