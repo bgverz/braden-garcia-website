@@ -42,7 +42,9 @@ export function Contact() {
 
         <Reveal delay={0.15}>
           <p className="mt-16 font-mono text-xs text-fg-dim">
-            {personal.location} · built with Next.js, Tailwind, Framer Motion &amp; GSAP
+            <span className="text-fg-muted">~/braden</span> ${" "}
+            <span className="text-accent">exit 0</span>
+            <span className="text-fg-muted"> · {personal.location}</span>
           </p>
         </Reveal>
       </div>
