@@ -7,7 +7,7 @@ export function Contact() {
     <footer id="contact" className="px-6 py-24 md:px-12 md:py-32">
       <div className="mx-auto max-w-3xl">
         <Reveal>
-          <PromptHeader path="/contact">get in touch</PromptHeader>
+          <PromptHeader cmd="ping braden">get in touch</PromptHeader>
         </Reveal>
 
         <Reveal>

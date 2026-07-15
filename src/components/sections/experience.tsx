@@ -7,7 +7,7 @@ export function Experience() {
     <section id="experience" className="px-6 py-24 md:px-12 md:py-32">
       <div className="mx-auto max-w-3xl">
         <Reveal>
-          <PromptHeader path="/experience">experience</PromptHeader>
+          <PromptHeader cmd="jobs">experience</PromptHeader>
         </Reveal>
 
         {experience.map((job, i) => (

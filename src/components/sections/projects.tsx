@@ -8,7 +8,7 @@ export function Projects() {
     <section id="projects" className="px-6 py-24 md:px-12 md:py-32">
       <div className="mx-auto max-w-4xl">
         <Reveal>
-          <PromptHeader path="/projects">projects</PromptHeader>
+          <PromptHeader cmd="ls projects/">projects</PromptHeader>
         </Reveal>
 
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">

@@ -7,7 +7,7 @@ export function About() {
     <section id="about" className="px-6 py-24 md:px-12 md:py-32">
       <div className="mx-auto max-w-3xl">
         <Reveal>
-          <PromptHeader path="/about">{about.heading}</PromptHeader>
+          <PromptHeader cmd="cat about.txt">{about.heading}</PromptHeader>
         </Reveal>
 
         <div className="space-y-6">
