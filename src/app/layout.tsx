@@ -18,11 +18,15 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 const title = `${personal.name} — ${personal.role}`;
-const description = `Portfolio of ${personal.name}, ${personal.role} based in ${personal.location}.`;
+const description = `${personal.name} is an IT technician in New York moving into software and systems engineering. Projects, experience, and how to reach him.`;
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://bradengarcia.com"),
-  title,
+  title: {
+    default: title,
+    // Subpages (e.g. /photos) set just their own name and get the suffix.
+    template: `%s — ${personal.name}`,
+  },
   description,
   openGraph: {
     title,
